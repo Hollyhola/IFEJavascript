@@ -33,6 +33,7 @@ var aqiData = [
   */
 
 var resultData = [];
+numArray = ["一", "二","三","四","五","六","七","八","九","十"];
 
 //获得空气质量数大于60的城市数据，并组成一个新的数组
   for(var i=0; i<aqiData.length; i++) {
@@ -54,10 +55,9 @@ var resultData = [];
 
 //为ul循环添加子节点
   for(var i=0;i<resultData.length;i++) {
-      index = i+1
       var ul = document.getElementById('aqi-list');
       var li = document.createElement("li");
-      li.textContent = '第' + index + '名：' +resultData[i][0]+ ' , ' + resultData[i][1];
+      li.textContent = '第' + numArray[i] + '名：' +resultData[i][0]+ ' , ' + resultData[i][1];
       ul.appendChild(li);
 
   }
