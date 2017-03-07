@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+        <style>
+        li {
+            display:inline-block;
+            list-style: none;
+            width:50px;
+            height: 50px;
+            background-color:pink;
+            text-align:center;
+            line-height: 50px;
+            margin-left: 10px;
+        }
+        </style>
+    </head>
+    <body>
+      <input id="textFiled" type="text" name="num">
+      <button onClick="insertLeft()">左侧入</button>
+      <button onClick="insertRight()">右侧入</button>
+      <button onClick= "removeLeft()">左侧出</button>
+      <button onClick= "removeRight()">右侧出</button>
+
+      <ul id="showFiled">
+          
+      </ul>
+    </body>
+
+    <script>
+
+        var list = [];
+        
+        var value;
+
+        var insertLeft = function() {
+           value = document.getElementById('textFiled').value;
+           if(value!=null) {
+               var liNode = document.createElement('li');
+               var textNode = document.createTextNode(value);
+               liNode.appendChild(textNode);
+               var firstNode = document.getElementById('showFiled').childNodes[0];               
+               document.getElementById('textFiled').value = '';
+               document.getElementById("showFiled").insertBefore(liNode,firstNode);
+           }
+            
+        } ;
+
+        var insertRight = function() {
+             value = document.getElementById('textFiled').value;
+            if(value!=null) {
+                var liNode = document.createElement('li');
+                var textNode = document.createTextNode(value);
+                document.getElementById('textFiled').value = '';
+                liNode.appendChild(textNode);
+                document.getElementById("showFiled").appendChild(liNode);
+                
+            }
+        };
+
+        var removeLeft = function() {
+            var parentNode = document.getElementById("showFiled");
+            var firstNode = parentNode.removeChild(parentNode.childNodes[0]);
+        };
+
+        var removeRight = function() {
+            var parentNode = document.getElementById("showFiled");
+            var firstNode = parentNode.removeChild(parentNode.lastChild);
+        }
+    </script>
+</html>
