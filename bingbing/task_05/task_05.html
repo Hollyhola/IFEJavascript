@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+        <style>
+        li {
+            display:inline-block;
+            list-style: none;
+            width:20px;
+            /*height: 50px;*/
+            background-color:pink;
+            text-align:center;
+            vertical-align: bottom;
+            /*line-height: 50px;*/
+            margin-left: 10px;
+        }
+        </style>
+    </head>
+    <body>
+      <input id="textFiled" type="text" name="num">
+      <button onClick="insertLeft()">左侧入</button>
+      <button onClick="insertRight()">右侧入</button>
+      <button onClick= "removeLeft()">左侧出</button>
+      <button onClick= "removeRight()">右侧出</button>
+      <button onClick= "sort()">排序</button>
+      
+      <ul id="showFiled">
+          
+      </ul>
+    </body>
+
+    <script>
+
+        var list = [];
+        
+        var value;
+        var num;
+        var insertLeft = function() {
+           value = document.getElementById('textFiled').value;
+           num = parseInt(value);
+           if(num) {
+               if(num > 100) {
+                   alert('您输入的数字过大');
+                   document.getElementById('textFiled').value = '';
+                   return false;
+               }
+               else if(num<10) {
+                   alert('您输入的数字过小');
+                   document.getElementById('textFiled').value = '';
+                   return false;
+               }
+               else {
+                    list.push(num);
+                    if(list.length>100) {
+                        alert('您输入的数字已达到上限');
+                        list.pop();
+                        return false;
+                    }
+                    else {
+                        var liNode = document.createElement('li');
+                        var textNode = document.createTextNode(num);
+                        var curheight ='height:'+ num+'px'
+                        liNode.appendChild(textNode);
+                        liNode.setAttribute('style', curheight);
+                        var firstNode = document.getElementById('showFiled').childNodes[0];               
+                        document.getElementById('textFiled').value = '';
+                        document.getElementById("showFiled").insertBefore(liNode,firstNode);
+                    }
+                    
+               }
+              
+           }
+            
+        } ;
+
+        var insertRight = function() {
+             value = document.getElementById('textFiled').value;
+             num = parseInt(value);
+            if(num!=null) {
+                
+                var liNode = document.createElement('li');
+                var textNode = document.createTextNode(num);
+                document.getElementById('textFiled').value = '';
+                liNode.appendChild(textNode);
+                document.getElementById("showFiled").appendChild(liNode);
+                
+            }
+        };
+
+        var removeLeft = function() {
+            list.pop();
+            console.log(list.length);
+            var parentNode = document.getElementById("showFiled");
+            var firstNode = parentNode.removeChild(parentNode.childNodes[0]);
+        };
+
+        var removeRight = function() {
+            var parentNode = document.getElementById("showFiled");
+            var firstNode = parentNode.removeChild(parentNode.lastChild);
+        }
+
+        var show =  function() {
+            
+        }
+        var sort = function () {
+            var length = list.length;
+            var children = document.getElementById('showFiled').children;
+            var i,j;
+            var array = [];
+            var timer;
+            for(i = 0; i<length; i++) {
+                for(j = 0 ; j<length-1-i; j++) {
+                    if(list[j]> list[j+1]) {
+                        
+                        
+                        var item=0 ,html='';
+                        var temp = list[j];
+                        list[j] = list[j+1];
+                        list[j+1] = temp;
+                     
+                        
+                        
+                        // timer = setInterval(function() {
+                        //     for(var v = 0; v< array.length; v++) {
+                        //          document.getElementById('showFiled').innerHTML = array[v];
+                        //     }
+                        //     if(v>array.length){
+                        //         clearInterval(this.timer);
+                        //     }
+                        // }, 1000)
+                        for(var k = 0; k<length; k++) {
+                            
+                            // var liNode = document.createElement('li');
+                            // var textNode = document.createTextNode(list[k]);
+                            // var curheight ='height:'+ list[k]+'px'
+                            // liNode.appendChild(textNode);
+                            // liNode.setAttribute('style', curheight);
+                            // document.getElementById("showFiled").appendChild(liNode);
+                            item = '<li style="height:'+list[k]+'px">'+list[k]+'</li>';
+                            // console.log(list[k]);
+                            html = html +item;
+                            
+                            
+                        }
+                        array.push(html);
+                        
+                    }  
+                    
+                }
+            }
+
+             var item = 0;
+           timer = setInterval(function(){
+               if(item > array.length-1) {
+                   clearInterval(item);
+                   return;
+               }
+                document.getElementById('showFiled').innerHTML = array[item];
+               item++;
+           },200)
+        
+        }
+    </script>
+</html>
