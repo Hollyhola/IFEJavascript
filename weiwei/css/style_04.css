@@ -1,0 +1,33 @@
+.gray {
+    width: 400px;
+    height: 200px;
+    background-color: #ccc;
+    margin: auto auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+.left-radius {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 0 0 50px 0;
+    background-color: #ffcc00;
+}
+.right-radius {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px 0 0 0;
+    background-color: #ffcc00;
+}
