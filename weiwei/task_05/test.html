@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+        <!--由三栏布局引申，二栏如何保证宽度缩小时元素不会下沉，主要浏览器渲染顺序-->
+        <!--非浮动块级元素独有一行，浮动元素按照规则浮在行的一端，浮动元素变小后，一行放不下浮动元素会换行-->
+        <!--浮动元素不占任何正常文档流空间，浮动元素的定位照样基于正常文档流-->
+        <!--当一个元素脱离正常文档流后，依然在文档流中的其他元素会忽略该元素并填补其原先的空间-->
+        <style>
+            .container {
+                width: 100%;
+                overflow: auto;
+            }
+
+            .left {
+                width: 70%;
+                height: 300px;
+                margin-left: 0;
+                background-color: pink;
+            }
+            .right {
+                width: 200px;
+                height: 300px;
+                float: right;
+                background-color: cornflowerblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="right"></div>            
+            
+            <div class="left"></div>
+            
+            
+            
+        </div>
+    </body>
+</html>
