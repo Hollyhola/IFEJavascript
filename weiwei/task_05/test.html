@@ -9,34 +9,38 @@
         <!--非浮动块级元素独有一行，浮动元素按照规则浮在行的一端，浮动元素变小后，一行放不下浮动元素会换行-->
         <!--浮动元素不占任何正常文档流空间，浮动元素的定位照样基于正常文档流-->
         <!--当一个元素脱离正常文档流后，依然在文档流中的其他元素会忽略该元素并填补其原先的空间-->
+        <!--未浮动的自适应的元素不设置宽度，设置margin-->
         <style>
-            .container {
-                width: 100%;
-                overflow: auto;
-            }
+	/*.left {
+	    float: left;
+	    height: 200px;
+	    width: 100px;
+	    background-color: red;
+	}*/
 
-            .left {
-                width: 70%;
-                height: 300px;
-                margin-left: 0;
-                background-color: pink;
-            }
-            .right {
-                width: 200px;
-                height: 300px;
-                float: right;
-                background-color: cornflowerblue;
-            }
-        </style>
+    .container {
+        width: 100%;
+        overflow: auto;
+    }
+	.right {
+	    width: 200px;
+	    height: 200px;
+	    background-color: blue;
+	    float: right;
+	}
+	.main {
+	    /*margin-left: 120px;*/
+	    margin-right: 220px;
+	    height: 200px;
+	    background-color: green;
+	}
+    </style>
     </head>
     <body>
-        <div class="container">
-            <div class="right"></div>            
-            
-            <div class="left"></div>
-            
-            
-            
-        </div>
+         <div class="container">
+        <!--<div class="left"></div>-->
+        <main class="right"></main>
+        <aside class="main"></aside>
+    </div>
     </body>
 </html>
