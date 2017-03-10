@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    /*background-color: pink;*/
+    width: 980px;
+    height: 1386px;
+    margin:  0 auto;
+}
+
+.contentContainer {
+    /*background-color: cornflowerblue;*/
+    margin: 0 44px 20px 44px;
+    height: 500px;
+}
+.header {
+    width: 100%;
+    border-bottom: 2px solid #938e8c;
+}
+
+.header .logo {
+    display: inline-block;
+    width: 110px;
+    height: 61px;
+    background-color: #d55f5b;
+   
+}
+.logo span {
+    display: inline-block;
+    color: #ffffff;
+    font-size: 12px;
+    font-family: 'SimHei';  /*考虑文件编码问题，css中推荐使用中文字体的英文表示法*/
+    margin-left: 10px;
+    margin-top: 44px;
+}
+.date {
+    float: right;
+    margin-top: 42px;
+}
+.date span {
+    font-size: 12px;
+    font-family: 'SimHei';
+    color: #d45d5c;
+}
+.firstContainer {
+    position: relative;
+    margin-top: 35px;
+}
+.firstContainer .imgTextContainer {
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+}
+.firstContainer .text {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 203px;
+    height: 301px;
+    border-top: 2px solid #cc8091;
+}
+.firstContainer .imgTextContainer .img {
+    position: absolute;
+    height: 301px;
+    width: 641px;
+    background: url('../img/banner.png');
+    display: inline-block;
+}
+.greenCover , .redCover {
+    position: absolute;
+    width: 191px;
+    height: 301px;
+    top: 0;
+}
+.greenCover {
+    left: 0;
+    background: url('../img/greenCover.png');
+}
+.redCover {
+    right: 0;
+    background: url('../img/redCover.png');
+}
+
+ 
+
+.text p {
+    font-size: 24px;
+    color: #000000;
+    font-family: 'Microsoft YaHei';
+    margin: 0;
+    text-decoration: underline;
+    line-height: 40px;
+}
+
+.text .little {
+    font-size: 12px;
+    color: #676767;
+    font-family: 'KaiTi';
+    line-height: 10px;
+    text-decoration: none;
+}
+.text .number {
+    font-size: 116px;
+    color: #75b86b;
+    font-family: 'Microsoft YaHei';
+    font-style: italic;
+    line-height: 120px;
+    text-decoration: none;
+}
+
+.text .lastText {
+    width: 100%;
+    position: relative;
+    color: #cc8091;
+    font-family: 'Microsoft YaHei';    
+    margin-left: 20px;
+}
+
+.lastText .leftNum {
+    left: 10px;
+    font-size: 55px;
+    display: inline-block;
+    width: 80px;
+}
+
+.lastText .rightText {
+    display: inline-block;
+    
+}
+
+ .rightText .bigger {
+     font-size: 21px;
+     text-decoration: none;
+     line-height: 20px;
+ }
+ .rightText .smaller {
+    font-size: 12px;
+    text-decoration: none;
+    color: #cccccc;
+    line-height: 12px;
+    bottom: 0;
+}
