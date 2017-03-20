@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            div {
+                background:white;
+                border: 1px solid black;     
+                display: -webkit-flex;
+                display: flex;
+                flex-direction: row; /*确定主轴方向，即项目排列方向*/
+                flex-wrap: nowrap; /*项目是否换行*/
+                /*flex-flow:<flex-direction|| flex-wrap>*/
+                justify-content: space-around; /*项目在主轴上的对齐方式*/
+                align-items: center; /*项目在交叉轴上的对齐方式*/           
+            }
+            .parent {
+                margin: 0 auto;
+                width: 800px;
+                height: 320px;
+                display: -webkit-flex;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .child_1, .child_2 {
+                
+                width: 760px;
+                height:130px;
+            }
+
+            .child2 {
+              
+                width: 350px;
+                height: 90px;
+            }
+
+            .child3 {
+                width: 150px;
+                height: 60px;
+            }
+
+           
+
+            .child4 {
+                width: 55px;
+                height: 40px
+            }
+
+           
+            /*.child_1_1, .child_2_1 {
+                width:49%;
+                height: 96%;
+            }*/
+
+        </style>
+    </head>
+    <body>
+        <div class="parent">
+            <div class="child1 child_1">
+                <div class="child2 child_1_1 ">
+                    <div class="child3 child_1_1_1 ">
+                        <div class="child4 child_1_1_1_1">
+                        
+                        </div>
+                        <div class="child4 child_1_1_1_2">
+                        
+                        </div> 
+                    </div>
+                    <div class="child3 child_1_1_2 ">
+                        <div class="child4 child_1_1_2_1">
+                        
+                        </div>
+                        <div class="child4 child_1_1_2_2">
+                        
+                        </div> 
+                    </div>
+                </div>
+                <div class="child2 child_1_2">
+                    <div class="child3 child_1_2_1">
+                        <div class="child4 child_1_2_1_1">
+                        
+                        </div>
+                        <div class="child4 child_1_2_1_2">
+                        
+                        </div> 
+                    </div>
+                    <div class="child3 child_1_2_2">
+                        <div class="child4 child_1_2_2_1">
+                        
+                        </div>
+                        <div class="child4 child_1_2_2_2">
+                        
+                        </div> 
+                    </div> 
+                </div>
+            </div>
+            <div class="child1 child_2">
+                <div class="child2 child_2_1">
+                    <div class="child3 child_2_1_1">
+                        <div class="child4 child_2_1_1_1">
+                        </div>
+                        <div class="child4 child_2_1_1_2">
+                        </div> 
+                    </div>
+                    <div class="child3 child_2_1_2">
+                        <div class="child4 child_2_1_2_1">
+                        </div>
+                        <div class="child4 child_2_1_2_2">
+                        </div> 
+                    </div> 
+                </div>
+                <div class="child2 child_2_2">
+                    <div class="child3 child_2_2_1">
+                        <div class="child4 child_2_2_1_1">
+                        </div>
+                        <div class="child4 child_2_2_1_2">
+                        </div> 
+                    </div>
+                    <div class="child3 child_2_2_2">
+                        <div class="child4 child_2_2_2_1">
+                        </div>
+                        <div class="child4 child_2_2_2_2">
+                        </div> 
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <button onClick="inOrderTraverse()">中序遍历</button>
+    </body>
+    <script>
+      var count = 0;
+      var item = 0;
+      var arr = [];
+        var inOrderTraverseNode = function(node) { 
+                 if(node !=null) {
+                    inOrderTraverseNode(node.children[0]);
+                    arr.push(node);
+                    inOrderTraverseNode(node.children[1]);
+            }
+           
+        }
+
+        
+        var inOrderTraverse = function() {
+            var parentNode = document.getElementsByClassName('parent')[0];
+            inOrderTraverseNode(parentNode);
+            timer = setInterval(function(){
+                if(item>arr.length-1) {
+                    clearInterval(timer);
+                    return;
+                }
+                arr[item].style.backgroundColor= 'pink';
+                item++;
+            },200);
+            
+        }
+
+      
+    </script>
+</html>
